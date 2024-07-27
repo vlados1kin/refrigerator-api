@@ -8,12 +8,13 @@ public class Node
     [Column("NodeId")] 
     public Guid Id { get; set; }
     
-    [ForeignKey(nameof(Product))]
+    [ForeignKey(nameof(Product))] 
     public Guid ProductId { get; set; }
-
-    [ForeignKey(nameof(Fridge))]
+    public Product? Product { get; set; }
+    
+    [ForeignKey(nameof(Fridge))] 
     public Guid FridgeId { get; set; }
-
-    [Required(ErrorMessage = "Quantity is a required field.")]
+    public Fridge? Fridge { get; set; }
+    
     public int Quantity { get; set; }
 }

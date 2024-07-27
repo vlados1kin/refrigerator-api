@@ -8,10 +8,10 @@ public class Model
     [Column("ModelId")]
     public Guid Id { get; set; }
     
-    [Required(ErrorMessage = "Owner name is a required field.")]
-    [MaxLength(50, ErrorMessage = "Maximum length for the Owner name field is 50 characters.")]
     public string? Name { get; set; }
+    
     public int Year { get; set; }
-
+    
+    public Guid FridgeId { get; set; }
     public Fridge? Fridge { get; set; }
 }

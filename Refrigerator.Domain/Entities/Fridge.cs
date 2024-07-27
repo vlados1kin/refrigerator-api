@@ -8,12 +8,12 @@ public class Fridge
     [Column("FridgeId")] 
     public Guid Id { get; set; }
     
-    [Required(ErrorMessage = "Owner name is a required field.")]
-    [MaxLength(50, ErrorMessage = "Maximum length for the Owner name field is 50 characters.")]
     public string? OwnerName { get; set; }
     
     [ForeignKey(nameof(Model))]
     public Guid ModelId { get; set; }
-
+    public Model? Model { get; set; }
+    
+    public Guid NodeId { get; set; }
     public Node? Node { get; set; }
 }
