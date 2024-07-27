@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refrigerator.API", "Refrige
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refrigerator.Domain", "Refrigerator.Domain\Refrigerator.Domain.csproj", "{BD4C347D-DE7E-48B4-8D23-744F7558A115}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refrigerator.Repository", "Refrigerator.Repository\Refrigerator.Repository.csproj", "{B54AC011-699F-4D0C-9D14-E34937AECAF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{BD4C347D-DE7E-48B4-8D23-744F7558A115}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD4C347D-DE7E-48B4-8D23-744F7558A115}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD4C347D-DE7E-48B4-8D23-744F7558A115}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B54AC011-699F-4D0C-9D14-E34937AECAF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B54AC011-699F-4D0C-9D14-E34937AECAF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B54AC011-699F-4D0C-9D14-E34937AECAF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B54AC011-699F-4D0C-9D14-E34937AECAF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
