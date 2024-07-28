@@ -12,6 +12,5 @@ public class Product
     
     public int DefaultQuantity { get; set; }
     
-    public Guid NodeId { get; set; }
     public Node? Node { get; set; }
 }

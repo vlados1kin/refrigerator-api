@@ -12,6 +12,5 @@ public class Model
     
     public int Year { get; set; }
     
-    public Guid FridgeId { get; set; }
     public Fridge? Fridge { get; set; }
 }

@@ -12,8 +12,8 @@ public class Fridge
     
     [ForeignKey(nameof(Model))]
     public Guid ModelId { get; set; }
+    
     public Model? Model { get; set; }
     
-    public Guid NodeId { get; set; }
     public Node? Node { get; set; }
 }
