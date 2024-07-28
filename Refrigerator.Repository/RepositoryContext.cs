@@ -10,7 +10,7 @@ public class RepositoryContext : DbContext
     {
     }
     
-    public DbSet<Node>? Notes { get; set; }
+    public DbSet<Node>? Nodes { get; set; }
     public DbSet<Product>? Products { get; set; }
     public DbSet<Fridge>? Fridges { get; set; }
     public DbSet<Model>? Models { get; set; }
