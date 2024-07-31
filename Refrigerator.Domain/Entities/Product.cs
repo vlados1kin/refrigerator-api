@@ -12,5 +12,5 @@ public class Product
     
     public int DefaultQuantity { get; set; }
     
-    public Node? Node { get; set; }
+    public FridgeProduct? Node { get; set; }
 }

@@ -15,5 +15,5 @@ public class Fridge
     
     public Model? Model { get; set; }
     
-    public Node? Node { get; set; }
+    public FridgeProduct? Node { get; set; }
 }
