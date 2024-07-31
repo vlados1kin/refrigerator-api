@@ -4,9 +4,9 @@ using Refrigerator.Domain.Entities;
 
 namespace Refrigerator.Domain.Configurations;
 
-public class NodeConfiguration : IEntityTypeConfiguration<Node>
+public class NodeConfiguration : IEntityTypeConfiguration<FridgeProduct>
 {
-    public void Configure(EntityTypeBuilder<Node> builder)
+    public void Configure(EntityTypeBuilder<FridgeProduct> builder)
     {
         builder.HasKey(n => n.Id);
 
