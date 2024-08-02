@@ -7,10 +7,9 @@ public class Product
 {
     [Column("ProductId")] 
     public Guid Id { get; set; }
-    
     public string? Name { get; set; }
-    
     public int DefaultQuantity { get; set; }
     
-    public FridgeProduct? Node { get; set; }
+    public Guid FridgeProductId { get; set; }
+    public FridgeProduct? FridgeProduct { get; set; }
 }
