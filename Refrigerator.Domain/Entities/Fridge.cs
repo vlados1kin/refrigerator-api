@@ -12,5 +12,5 @@ public class Fridge
     public Guid ModelId { get; set; }
     
     public virtual Model? Model { get; set; }
-    public virtual FridgeProduct? FridgeProduct { get; set; }
+    public virtual ICollection<FridgeProduct>? FridgeProducts { get; set; }
 }

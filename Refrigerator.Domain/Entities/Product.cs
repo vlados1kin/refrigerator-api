@@ -10,5 +10,5 @@ public class Product
     public string? Name { get; set; }
     public int DefaultQuantity { get; set; }
     
-    public virtual FridgeProduct? FridgeProduct { get; set; }
+    public virtual ICollection<FridgeProduct>? FridgeProducts { get; set; }
 }

@@ -10,5 +10,5 @@ public class Model
     public string? Name { get; set; }
     public int Year { get; set; }
     
-    public virtual Fridge? Fridge { get; set; }
+    public virtual ICollection<Fridge>? Fridges { get; set; }
 }
