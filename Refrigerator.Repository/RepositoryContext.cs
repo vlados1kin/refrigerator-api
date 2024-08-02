@@ -19,20 +19,20 @@ public sealed class RepositoryContext : DbContext
         modelBuilder
             .Entity<FridgeProduct>()
             .HasOne(fp => fp.Product)
-            .WithOne(p => p.FridgeProduct)
-            .HasForeignKey<FridgeProduct>(fp => fp.ProductId);
+            .WithMany(p => p.FridgeProducts)
+            .HasForeignKey(fp => fp.ProductId);
         
         modelBuilder
             .Entity<FridgeProduct>()
             .HasOne(fp => fp.Fridge)
-            .WithOne(f => f.FridgeProduct)
-            .HasForeignKey<FridgeProduct>(fp => fp.FridgeId);
+            .WithMany(f => f.FridgeProducts)
+            .HasForeignKey(fp => fp.FridgeId);
         
         modelBuilder
             .Entity<Fridge>()
             .HasOne(f => f.Model)
-            .WithOne(m => m.Fridge)
-            .HasForeignKey<Fridge>(f => f.ModelId);
+            .WithMany(m => m.Fridges)
+            .HasForeignKey(f => f.ModelId);
         
         base.OnModelCreating(modelBuilder);
     }
