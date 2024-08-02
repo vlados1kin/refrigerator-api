@@ -10,6 +10,5 @@ public class Product
     public string? Name { get; set; }
     public int DefaultQuantity { get; set; }
     
-    public Guid FridgeProductId { get; set; }
-    public FridgeProduct? FridgeProduct { get; set; }
+    public virtual FridgeProduct? FridgeProduct { get; set; }
 }

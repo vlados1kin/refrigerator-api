@@ -10,6 +10,5 @@ public class Model
     public string? Name { get; set; }
     public int Year { get; set; }
     
-    public Guid FridgeId { get; set; }
-    public Fridge? Fridge { get; set; }
+    public virtual Fridge? Fridge { get; set; }
 }

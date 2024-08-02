@@ -7,10 +7,10 @@ public class Fridge
 {
     [Column("FridgeId")] 
     public Guid Id { get; set; }
+    public string? Name { get; set; }
     public string? OwnerName { get; set; }
     public Guid ModelId { get; set; }
     
-    public Model? Model { get; set; }
-    public Guid FridgeProductId { get; set; }
-    public FridgeProduct? FridgeProduct { get; set; }
+    public virtual Model? Model { get; set; }
+    public virtual FridgeProduct? FridgeProduct { get; set; }
 }
