@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Refrigerator.Domain.Configuration;
 using Refrigerator.Domain.Entities;
 
 namespace Refrigerator.Repository;
@@ -33,6 +34,9 @@ public sealed class RepositoryContext : DbContext
             .HasOne(f => f.Model)
             .WithMany(m => m.Fridges)
             .HasForeignKey(f => f.ModelId);
+
+        modelBuilder.ApplyConfiguration(new FridgeConfiguration());
+        modelBuilder.ApplyConfiguration(new ModelConfiguration());
         
         base.OnModelCreating(modelBuilder);
     }
