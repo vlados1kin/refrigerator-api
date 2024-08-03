@@ -6,4 +6,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Refrigerator.Domain\Refrigerator.Domain.csproj" />
+      <ProjectReference Include="..\Refrigerator.Shared\Refrigerator.Shared.csproj" />
+    </ItemGroup>
+
 </Project>
