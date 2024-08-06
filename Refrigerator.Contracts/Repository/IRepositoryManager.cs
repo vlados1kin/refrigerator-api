@@ -3,6 +3,6 @@
 public interface IRepositoryManager
 {
     IFridgeRepository Fridge { get; }
-    IProductRepository Product { get; }
+    IFridgeProductRepository FridgeProduct { get; }
     Task SaveAsync();
 }
