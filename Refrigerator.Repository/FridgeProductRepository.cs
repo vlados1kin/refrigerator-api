@@ -12,7 +12,7 @@ public class FridgeProductRepository : RepositoryBase<FridgeProduct>, IFridgePro
 
     public async Task<IEnumerable<FridgeProduct>> GetProductsAsync(Guid id, bool trackChanges)
     => await FindAll(trackChanges)
-        .Where(fp => fp.Id == id)
+        .Where(fp => fp.FridgeId == id)
         .Include(fp => fp.Product)
         .ToListAsync();
 }
