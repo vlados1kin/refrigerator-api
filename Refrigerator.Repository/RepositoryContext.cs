@@ -37,6 +37,8 @@ public sealed class RepositoryContext : DbContext
 
         modelBuilder.ApplyConfiguration(new FridgeConfiguration());
         modelBuilder.ApplyConfiguration(new ModelConfiguration());
+        modelBuilder.ApplyConfiguration(new ProductConfiguration());
+        modelBuilder.ApplyConfiguration(new FridgeProductConfiguration());
         
         base.OnModelCreating(modelBuilder);
     }
