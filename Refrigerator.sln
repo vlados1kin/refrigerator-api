@@ -8,6 +8,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refrigerator.Repository", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refrigerator.Contracts", "Refrigerator.Contracts\Refrigerator.Contracts.csproj", "{D79566DA-02AC-4063-B936-EEF7443F54DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refrigerator.Shared", "Refrigerator.Shared\Refrigerator.Shared.csproj", "{1D79314C-3DEB-4FA2-B6BB-3610547A8C68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refrigerator.Service", "Refrigerator.Service\Refrigerator.Service.csproj", "{3429BB81-E958-4031-8EE5-63C01A002A29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Refrigerator.Presentation", "Refrigerator.Presentation\Refrigerator.Presentation.csproj", "{FA536434-1120-484F-AA09-BE756602451B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +36,17 @@ Global
 		{D79566DA-02AC-4063-B936-EEF7443F54DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D79566DA-02AC-4063-B936-EEF7443F54DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D79566DA-02AC-4063-B936-EEF7443F54DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D79314C-3DEB-4FA2-B6BB-3610547A8C68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D79314C-3DEB-4FA2-B6BB-3610547A8C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D79314C-3DEB-4FA2-B6BB-3610547A8C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D79314C-3DEB-4FA2-B6BB-3610547A8C68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3429BB81-E958-4031-8EE5-63C01A002A29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3429BB81-E958-4031-8EE5-63C01A002A29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3429BB81-E958-4031-8EE5-63C01A002A29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3429BB81-E958-4031-8EE5-63C01A002A29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA536434-1120-484F-AA09-BE756602451B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA536434-1120-484F-AA09-BE756602451B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA536434-1120-484F-AA09-BE756602451B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA536434-1120-484F-AA09-BE756602451B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

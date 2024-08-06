@@ -7,10 +7,8 @@ public class Model
 {
     [Column("ModelId")]
     public Guid Id { get; set; }
-    
     public string? Name { get; set; }
-    
     public int Year { get; set; }
     
-    public Fridge? Fridge { get; set; }
+    public virtual ICollection<Fridge>? Fridges { get; set; }
 }

@@ -42,6 +42,7 @@ namespace Refrigerator.API.Migrations
                 columns: table => new
                 {
                     FridgeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     OwnerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ModelId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
@@ -57,25 +58,25 @@ namespace Refrigerator.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Nodes",
+                name: "FridgeProducts",
                 columns: table => new
                 {
-                    NodeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    FridgeProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ProductId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FridgeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Nodes", x => x.NodeId);
+                    table.PrimaryKey("PK_FridgeProducts", x => x.FridgeProductId);
                     table.ForeignKey(
-                        name: "FK_Nodes_Fridges_FridgeId",
+                        name: "FK_FridgeProducts_Fridges_FridgeId",
                         column: x => x.FridgeId,
                         principalTable: "Fridges",
                         principalColumn: "FridgeId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Nodes_Products_ProductId",
+                        name: "FK_FridgeProducts_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "ProductId",
@@ -83,29 +84,26 @@ namespace Refrigerator.API.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_FridgeProducts_FridgeId",
+                table: "FridgeProducts",
+                column: "FridgeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FridgeProducts_ProductId",
+                table: "FridgeProducts",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Fridges_ModelId",
                 table: "Fridges",
-                column: "ModelId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Nodes_FridgeId",
-                table: "Nodes",
-                column: "FridgeId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Nodes_ProductId",
-                table: "Nodes",
-                column: "ProductId",
-                unique: true);
+                column: "ModelId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Nodes");
+                name: "FridgeProducts");
 
             migrationBuilder.DropTable(
                 name: "Fridges");

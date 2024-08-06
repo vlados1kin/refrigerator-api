@@ -1,4 +1,8 @@
 using Refrigerator.API.Extensions;
+using Refrigerator.Contracts.Repository;
+using Refrigerator.Contracts.Service;
+using Refrigerator.Repository;
+using Repository.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +12,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.ConfigureRepositoryContext(builder.Configuration);
+builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
+builder.Services.AddScoped<IServiceManager, ServiceManager>();
+builder.Services.AddControllers();
 
 var app = builder.Build();
 
@@ -19,5 +27,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.MapControllers();
 
 app.Run();

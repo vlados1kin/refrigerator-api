@@ -12,7 +12,7 @@ using Refrigerator.Repository;
 namespace Refrigerator.API.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20240728155019_Initial")]
+    [Migration("20240802102238_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -35,15 +35,42 @@ namespace Refrigerator.API.Migrations
                     b.Property<Guid>("ModelId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("OwnerName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ModelId")
-                        .IsUnique();
+                    b.HasIndex("ModelId");
 
                     b.ToTable("Fridges");
+                });
+
+            modelBuilder.Entity("Refrigerator.Domain.Entities.FridgeProduct", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("FridgeProductId");
+
+                    b.Property<Guid>("FridgeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ProductId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FridgeId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("FridgeProducts");
                 });
 
             modelBuilder.Entity("Refrigerator.Domain.Entities.Model", b =>
@@ -62,33 +89,6 @@ namespace Refrigerator.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Models");
-                });
-
-            modelBuilder.Entity("Refrigerator.Domain.Entities.Node", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasColumnName("NodeId");
-
-                    b.Property<Guid>("FridgeId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ProductId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FridgeId")
-                        .IsUnique();
-
-                    b.HasIndex("ProductId")
-                        .IsUnique();
-
-                    b.ToTable("Nodes");
                 });
 
             modelBuilder.Entity("Refrigerator.Domain.Entities.Product", b =>
@@ -112,25 +112,25 @@ namespace Refrigerator.API.Migrations
             modelBuilder.Entity("Refrigerator.Domain.Entities.Fridge", b =>
                 {
                     b.HasOne("Refrigerator.Domain.Entities.Model", "Model")
-                        .WithOne("Fridge")
-                        .HasForeignKey("Refrigerator.Domain.Entities.Fridge", "ModelId")
+                        .WithMany("Fridges")
+                        .HasForeignKey("ModelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Model");
                 });
 
-            modelBuilder.Entity("Refrigerator.Domain.Entities.Node", b =>
+            modelBuilder.Entity("Refrigerator.Domain.Entities.FridgeProduct", b =>
                 {
                     b.HasOne("Refrigerator.Domain.Entities.Fridge", "Fridge")
-                        .WithOne("Node")
-                        .HasForeignKey("Refrigerator.Domain.Entities.Node", "FridgeId")
+                        .WithMany("FridgeProducts")
+                        .HasForeignKey("FridgeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Refrigerator.Domain.Entities.Product", "Product")
-                        .WithOne("Node")
-                        .HasForeignKey("Refrigerator.Domain.Entities.Node", "ProductId")
+                        .WithMany("FridgeProducts")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -141,17 +141,17 @@ namespace Refrigerator.API.Migrations
 
             modelBuilder.Entity("Refrigerator.Domain.Entities.Fridge", b =>
                 {
-                    b.Navigation("Node");
+                    b.Navigation("FridgeProducts");
                 });
 
             modelBuilder.Entity("Refrigerator.Domain.Entities.Model", b =>
                 {
-                    b.Navigation("Fridge");
+                    b.Navigation("Fridges");
                 });
 
             modelBuilder.Entity("Refrigerator.Domain.Entities.Product", b =>
                 {
-                    b.Navigation("Node");
+                    b.Navigation("FridgeProducts");
                 });
 #pragma warning restore 612, 618
         }

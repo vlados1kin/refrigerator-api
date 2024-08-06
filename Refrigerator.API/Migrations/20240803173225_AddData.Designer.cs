@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Refrigerator.Repository;
 
@@ -11,9 +12,11 @@ using Refrigerator.Repository;
 namespace Refrigerator.API.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20240803173225_AddData")]
+    partial class AddData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -84,29 +87,6 @@ namespace Refrigerator.API.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("FridgeProducts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("c9d4c053-49b5-410c-bc78-2d54a9991870"),
-                            FridgeId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
-                            ProductId = new Guid("a9d4c053-49b6-410c-bc78-2d54a9991870"),
-                            Quantity = 0
-                        },
-                        new
-                        {
-                            Id = new Guid("c9d4c053-49b1-410c-bc78-2d54a9991870"),
-                            FridgeId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
-                            ProductId = new Guid("1d490a70-94ce-4d15-9494-5248280c2ce3"),
-                            Quantity = 0
-                        },
-                        new
-                        {
-                            Id = new Guid("b9d4c053-49b5-410c-bc78-2d54a9991870"),
-                            FridgeId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
-                            ProductId = new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"),
-                            Quantity = 0
-                        });
                 });
 
             modelBuilder.Entity("Refrigerator.Domain.Entities.Model", b =>
@@ -157,26 +137,6 @@ namespace Refrigerator.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("a9d4c053-49b6-410c-bc78-2d54a9991870"),
-                            DefaultQuantity = 10,
-                            Name = "Cucumber"
-                        },
-                        new
-                        {
-                            Id = new Guid("1d490a70-94ce-4d15-9494-5248280c2ce3"),
-                            DefaultQuantity = 5,
-                            Name = "Apple"
-                        },
-                        new
-                        {
-                            Id = new Guid("021ca3c1-0deb-4afd-ae94-2159a8479811"),
-                            DefaultQuantity = 3,
-                            Name = "Watermelon"
-                        });
                 });
 
             modelBuilder.Entity("Refrigerator.Domain.Entities.Fridge", b =>
