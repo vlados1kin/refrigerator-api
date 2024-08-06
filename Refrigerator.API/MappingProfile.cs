@@ -10,5 +10,8 @@ public class MappingProfile : Profile
     {
         CreateMap<Fridge, FridgeDto>().ForMember(dest => dest.ModelDto, opt => opt.MapFrom(src => src.Model));
         CreateMap<Model, ModelDto>();
+        CreateMap<FridgeProduct, ProductDto>()
+            .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Product.Name))
+            .ForMember(dest => dest.Quantity, opt => opt.MapFrom(src => src.Quantity));
     }
 }
