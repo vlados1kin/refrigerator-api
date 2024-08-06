@@ -20,4 +20,12 @@ public class FridgeController : ControllerBase
         var fridges = await _service.FridgeService.GetFridgesAsync(trackChanges: false);
         return Ok(fridges);
     }
+
+    [HttpGet]
+    [Route("{id:guid}/products")]
+    public async Task<IActionResult> GetProductsInFridgeWithId(Guid id)
+    {
+        var products = await _service.ProductService.GetProductsAsync(id, trackChanges: false);
+        return Ok(products);
+    }
 }
